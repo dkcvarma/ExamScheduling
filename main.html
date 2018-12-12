@@ -1,0 +1,100 @@
+<html>
+<head>
+<meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>EMS</title>
+        <meta name="description" content="Exam Scheduling Management">
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+        
+        <meta property="og:title" content="EMS">
+   
+        <meta property="og:url" content="EMS">
+        <meta property="og:type" content="website">
+		
+		<link rel="stylesheet" type="text/css" href="main.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		
+		<style>
+			.modal-header, .close, .modal-head {
+			background-color: #7cc67c;
+			color: #f9f9f9 !important;
+			text-align: center;
+			padding-top: 20px;
+			font-size: 30px;
+			font-weight: bold;
+		}
+		.modal-footer {
+			background-color: #f9f9f9;
+		}
+		</style>
+</head>
+<body>
+	<img src="img/exam.png">
+	<div id="login_widget">
+		<center><h1>Exam Scheduling Management</h1></center>
+		<form name="myform" method="post"  onsubmit=" return validateform()" action="validate_login.php">
+			<input type="text" name="username" placeholder="User Name" required>
+			<input type="password" name="password" placeholder="Password" required>
+			<button type = "submit">Login</button>
+			<a id="myBtn" href="#myModal">Forgot Password</a></li>
+		</form>
+	</div>
+	
+	
+	<div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+        <!-- Modal content-->
+            <div class="modal-content">
+                
+                <div class="modal-body" style="padding:40px 50px;">
+                    <form role="form" method="post" action="recover_pad.php">
+						<!--<div class="form-group">
+							<label for="usrname">ID</label>
+							<input type="text" class="form-control" name="id" placeholder="Enter Your ID"  required>
+						</div>-->
+                        <div class="form-group">
+							<label for="usrname"> Username</label>
+							<input type="text" class="form-control" name="username" placeholder="Enter Your Username"  required>
+						</div>
+						<div class="form-group">
+							<label for="email"> Email Address</label>
+							<input type="email" class="form-control" name="email" placeholder="Enter Your Email Address"  required>
+						</div>
+						<br />
+						<button type="submit" class="btn btn-warning btn-block"> Recover</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-danger btn-default pull-right" data-dismiss="modal" style="color:#fff;background-color:#d9534f;border-color:#d43f3a"> Cancel</button>
+                    
+                </div>
+            </div>      
+        </div>
+    </div>	
+</body>
+   <script>
+		function validateform(){
+			var username = document.myform.username.value;
+			if(!/^[a-zA-Z0-9]*$/.test(username)){
+			alert("Give Proper Username and password");
+			return false;}
+			var password = document.myform.password.value;
+			if(!/^[a-zA-Z0-9]*$/.test(password)){
+			alert("Giver proper Username and Password");
+			return false;}
+		}
+   </script>
+   <script>
+        $(document).ready(function(){
+            $("#myBtn").click(function(){
+                $("#myModal").modal();
+            });
+        });
+		
+    </script>
+</html>
